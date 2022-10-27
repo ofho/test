@@ -22,6 +22,8 @@ COPY --from=caddy /go/caddy /usr/bin
 COPY --from=xray /tmp/xray /usr/bin
 COPY entrypoint.sh /usr/bin
 
+RUN apk add --no-cache ca-certificates tor
+
 RUN set -eux; \
     mkdir -p \
 	/config/caddy \
