@@ -15,8 +15,7 @@ COPY --from=caddy /go/caddy /usr/bin
 COPY --from=xray /tmp/xray /usr/bin
 COPY entrypoint.sh /usr/bin
 
-RUN set -eux; \
-    apk add --no-cache ca-certificates tor ; \
+RUN apk add --no-cache ca-certificates tor ; \
     chmod +x /usr/bin/caddy; \
     chmod +x /usr/bin/entrypoint.sh
     
