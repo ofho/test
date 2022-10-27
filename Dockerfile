@@ -2,7 +2,7 @@ FROM golang:alpine AS caddy
 RUN go install github.com/caddyserver/xcaddy/cmd/xcaddy@latest && \
 	xcaddy build latest
 
-FROM alpine:edge
+FROM alpine:latest
 COPY --from=caddy /go/caddy /usr/bin
 
 RUN set -eux; \
